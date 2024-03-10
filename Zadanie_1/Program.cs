@@ -3,5 +3,7 @@
     public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+
+        List<int> valuesList = new List<Int32>() { 1, 2, 3, 4, 5 };
     }
 }
