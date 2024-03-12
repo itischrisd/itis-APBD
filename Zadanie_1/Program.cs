@@ -1,14 +1,17 @@
 ﻿namespace Zadanie_1
 {
-    public static void Main(string[] args)
+    public class Program
     {
-        Console.WriteLine("Hello, World!");
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
 
-        List<int> valuesList = new List<Int32>() { 1, 2, 3, 4, 5 };
-    }
-    
-    public static double CountAverage(List<int> values)
-    {
-        return values.Average();
+            List<int> valuesList = new List<Int32>() { 1, 2, 3, 4, 5 };
+        }
+
+        public static double CountAverage(List<int> values)
+        {
+            return values.Average();
+        }
     }
 }
