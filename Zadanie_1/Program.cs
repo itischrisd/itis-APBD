@@ -14,13 +14,13 @@
 
         private static double CountAverage(List<int> values)
         {
-            var sum = 0;
+            var sum2 = 0;
             foreach (var value in values)
             {
-                sum += value;
+                sum2 += value;
             }
 
-            return (double)sum / values.Count;
+            return (double)sum2 / values.Count;
         }
 
         private static int CountMax(List<int> values)
