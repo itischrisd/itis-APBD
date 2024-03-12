@@ -7,11 +7,19 @@
             Console.WriteLine("Hello, World!");
 
             List<int> valuesList = new List<Int32>() { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine($"Average is: {CountAverage(valuesList)}");
         }
 
-        public static double CountAverage(List<int> values)
+        private static double CountAverage(List<int> values)
         {
-            return values.Average();
+            var sum = 0;
+            foreach (var value in values)
+            {
+                sum += value;
+            }
+
+            return (double)sum / values.Count;
         }
 
         public static int CountMax(List<int> values)
