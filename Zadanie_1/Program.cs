@@ -14,4 +14,9 @@
             return values.Average();
         }
     }
+
+    public static int CountMax(List<int> values)
+    {
+        return values.Max();
+    }
 }
