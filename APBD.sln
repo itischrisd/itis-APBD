@@ -6,9 +6,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LABO02", "LABO02", "{6E8F24
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LABO01", "LABO01", "{EF77B275-DF55-4BB7-ADB9-4DBFDCA4B721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyApp", "..\..\..\Users\xxdudekk\Downloads\zadanie\zadanie\LegacyApp\LegacyApp.csproj", "{88C3A01D-C729-480B-B5C7-C5CFE3614DD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyApp", "LegacyApp\LegacyApp.csproj", "{88C3A01D-C729-480B-B5C7-C5CFE3614DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyAppConsumer", "..\..\..\Users\xxdudekk\Downloads\zadanie\zadanie\LegacyAppConsumer\LegacyAppConsumer.csproj", "{F4EA8530-7F2C-4443-AC5F-E2664A4B61F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyAppConsumer", "LegacyAppConsumer\LegacyAppConsumer.csproj", "{F4EA8530-7F2C-4443-AC5F-E2664A4B61F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacyAppTest", "LegacyAppTest\LegacyAppTest.csproj", "{69F6BBF3-7B23-476C-BA27-84AD4E1A7240}"
 EndProject
