@@ -30,7 +30,7 @@ namespace LegacyApp
         internal Client GetById(int clientId)
         {
             int randomWaitTime = new Random().Next(2000);
-            Thread.Sleep(randomWaitTime);
+            // Thread.Sleep(randomWaitTime);
 
             if (Database.ContainsKey(clientId))
                 return Database[clientId];

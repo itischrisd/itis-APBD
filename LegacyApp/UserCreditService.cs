@@ -31,7 +31,7 @@ namespace LegacyApp
         internal int GetCreditLimit(string lastName, DateTime dateOfBirth)
         {
             int randomWaitingTime = new Random().Next(3000);
-            Thread.Sleep(randomWaitingTime);
+            // Thread.Sleep(randomWaitingTime);
 
             if (_database.ContainsKey(lastName))
                 return _database[lastName];
