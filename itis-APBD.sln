@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie_1", "Zadanie_1\Zadanie_1.csproj", "{8FC70360-754E-41CD-95D1-EE0B72770885}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LABO02", "LABO02", "{6E8F2481-7012-4627-9241-3FC9D9739517}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LABO01", "LABO01", "{EF77B275-DF55-4BB7-ADB9-4DBFDCA4B721}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,8 @@ Global
 		{8FC70360-754E-41CD-95D1-EE0B72770885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC70360-754E-41CD-95D1-EE0B72770885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC70360-754E-41CD-95D1-EE0B72770885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FC70360-754E-41CD-95D1-EE0B72770885} = {EF77B275-DF55-4BB7-ADB9-4DBFDCA4B721}
 	EndGlobalSection
 EndGlobal
