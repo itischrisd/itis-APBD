@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using LegacyApp.Interfaces;
 
 namespace LegacyApp
 {
-    public class UserCreditService : IDisposable
+    public class UserCreditService : IDisposable, IUserCreditService
     {
         /// <summary>
         /// Simulating database
@@ -27,7 +28,7 @@ namespace LegacyApp
         /// This method is simulating contact with remote service which is used to get info about someone's credit limit
         /// </summary>
         /// <returns>Client's credit limit</returns>
-        internal int GetCreditLimit(string lastName, DateTime dateOfBirth)
+        public int GetCreditLimit(string lastName)
         {
             var randomWaitingTime = new Random().Next(3000);
             // Thread.Sleep(randomWaitingTime);

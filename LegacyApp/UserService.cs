@@ -1,28 +1,38 @@
 ﻿using System;
+using LegacyApp.Interfaces;
+using LegacyApp.Validators.Users;
 
 namespace LegacyApp
 {
     public class UserService
     {
+        private readonly IInputValidator _inputValidator;
+        private readonly IClientRepository _clientRepository;
+        private readonly IUserCreditService _userCreditService;
+
+        [Obsolete("This is legacy constructor for backward compatibility. Use UserService(IInputValidator, IClientRepository, IUserCreditService) instead.")]
+        public UserService()
+        {
+            _inputValidator = new InputValidator();
+            _clientRepository = new ClientRepository();
+            _userCreditService = new UserCreditService();
+        }
+
+        public UserService(IInputValidator inputValidator, IClientRepository clientRepository, IUserCreditService userCreditService)
+        {
+            _inputValidator = inputValidator;
+            _clientRepository = clientRepository;
+            _userCreditService = userCreditService;
+        }
+
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+            if (!ValidateInput(firstName, lastName, email, dateOfBirth))
             {
                 return false;
             }
 
-            if (!email.Contains('@') && !email.Contains('.'))
-            {
-                return false;
-            }
-
-            if (DateTime.Now < dateOfBirth.AddYears(21))
-            {
-                return false;
-            }
-
-            var clientRepository = new ClientRepository();
-            var client = clientRepository.GetById(clientId);
+            var client = _clientRepository.GetById(clientId);
 
             var user = new User
             {
@@ -40,8 +50,7 @@ namespace LegacyApp
                     break;
                 case "ImportantClient":
                 {
-                    using var userCreditService = new UserCreditService();
-                    var creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
+                    var creditLimit = _userCreditService.GetCreditLimit(user.LastName);
                     creditLimit = creditLimit * 2;
                     user.CreditLimit = creditLimit;
 
@@ -50,8 +59,7 @@ namespace LegacyApp
                 default:
                 {
                     user.HasCreditLimit = true;
-                    using var userCreditService = new UserCreditService();
-                    var creditLimit = userCreditService.GetCreditLimit(user.LastName, user.DateOfBirth);
+                    var creditLimit = _userCreditService.GetCreditLimit(user.LastName);
                     user.CreditLimit = creditLimit;
 
                     break;
@@ -65,6 +73,13 @@ namespace LegacyApp
 
             UserDataAccess.AddUser(user);
             return true;
+        }
+
+        private bool ValidateInput(string firstName, string lastName, string email, DateTime dateOfBirth)
+        {
+            return _inputValidator.ValidateName(firstName, lastName) &&
+                   _inputValidator.ValidateEmail(email) &&
+                   _inputValidator.ValidateAge(dateOfBirth);
         }
     }
 }
