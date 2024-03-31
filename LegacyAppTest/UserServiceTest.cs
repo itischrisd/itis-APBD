@@ -12,7 +12,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "";
         const string lastName = "Kowalski";
         const string email = "test@mail.com";
@@ -30,7 +31,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "";
         const string email = "test@mail.com";
@@ -48,7 +50,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "Kowalski";
         const string email = "testmailcom";
@@ -66,7 +69,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "Kowalski";
         const string email = "test@mail.com";
@@ -84,7 +88,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "Kowalski";
         const string email = "test@mail.com";
@@ -102,7 +107,8 @@ public class UserServiceTest
         var inputValidator = new InputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "Kowalski";
         const string email = "test@mail.com";
@@ -120,7 +126,8 @@ public class UserServiceTest
         var inputValidator = new StubInputValidator();
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService);
+        var userDataAccessAdapter = new FakeUserDataAccessAdapter();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
         const string firstName = "Test";
         const string lastName = "Testerski1";
         const string email = "test@mail.com";

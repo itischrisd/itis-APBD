@@ -31,7 +31,7 @@ namespace LegacyApp
         public int GetCreditLimit(string lastName)
         {
             var randomWaitingTime = new Random().Next(3000);
-            // Thread.Sleep(randomWaitingTime);
+            Thread.Sleep(randomWaitingTime);
 
             if (_database.TryGetValue(lastName, out var value))
                 return value;

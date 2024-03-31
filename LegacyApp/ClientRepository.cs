@@ -27,7 +27,7 @@ namespace LegacyApp
         public Client GetById(int clientId)
         {
             var randomWaitTime = new Random().Next(2000);
-            // Thread.Sleep(randomWaitTime);
+            Thread.Sleep(randomWaitTime);
 
             if (Database.TryGetValue(clientId, out var value))
                 return value;
