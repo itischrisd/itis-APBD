@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using LegacyApp.Interfaces;
 using LegacyApp.Validators.Users;
 
@@ -24,38 +25,7 @@ namespace LegacyApp
             }
 
             var client = clientRepository.GetById(clientId);
-
-            var user = new User
-            {
-                Client = client,
-                DateOfBirth = dateOfBirth,
-                EmailAddress = email,
-                FirstName = firstName,
-                LastName = lastName
-            };
-
-            switch (client.Type)
-            {
-                case "VeryImportantClient":
-                    user.HasCreditLimit = false;
-                    break;
-                case "ImportantClient":
-                {
-                    var creditLimit = userCreditService.GetCreditLimit(user.LastName);
-                    creditLimit = creditLimit * 2;
-                    user.CreditLimit = creditLimit;
-
-                    break;
-                }
-                default:
-                {
-                    user.HasCreditLimit = true;
-                    var creditLimit = userCreditService.GetCreditLimit(user.LastName);
-                    user.CreditLimit = creditLimit;
-
-                    break;
-                }
-            }
+            var user =  CreateUser(firstName, lastName, email, dateOfBirth, client);
 
             if (creditValidator.ValidateCreditLimit(user) == false)
             {
@@ -72,6 +42,13 @@ namespace LegacyApp
             return inputValidator.ValidateName(firstName, lastName) &&
                    inputValidator.ValidateEmail(email) &&
                    inputValidator.ValidateAge(dateOfBirth);
+        }
+
+        private User CreateUser(string firstName, string lastName, string email, DateTime dateOfBirth, Client client)
+        {
+
+            var factory = IUserFactory.GetInstanceForTypeOrDefaultToNormal(client.Type);
+            return factory.CreateUser(firstName, lastName, email, dateOfBirth, client, userCreditService);
         }
     }
 }
