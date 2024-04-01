@@ -13,7 +13,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "";
         const string lastName = "Testerski";
         const string email = "test@mail.com";
@@ -32,7 +33,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "";
         const string email = "test@mail.com";
@@ -51,7 +53,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "testmailcom";
@@ -70,7 +73,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "test@mail.com";
@@ -89,7 +93,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "test@mail.com";
@@ -108,7 +113,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "test@mail.com";
@@ -127,7 +133,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski1";
         const string email = "test@mail.com";
@@ -146,7 +153,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski1";
         const string email = "test@mail.com";
@@ -165,7 +173,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski2";
         const string email = "test@mail.com";
@@ -184,7 +193,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "test@mail.com";
@@ -203,7 +213,8 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter);
+        var creditValidator = new CreditValidator();
+        var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
         const string email = "test@mail.com";

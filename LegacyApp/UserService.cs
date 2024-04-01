@@ -8,10 +8,11 @@ namespace LegacyApp
         IInputValidator inputValidator,
         IClientRepository clientRepository,
         IUserCreditService userCreditService,
-        IUserDataAccessAdapter userDataAccessAdapter)
+        IUserDataAccessAdapter userDataAccessAdapter,
+        ICreditValidator creditValidator)
     {
         [Obsolete("This is legacy constructor for backward compatibility. Use UserService(IInputValidator, IClientRepository, IUserCreditService) instead.")]
-        public UserService() : this(new InputValidator(), new ClientRepository(), new UserCreditService(), new UserDataAccessAdapter())
+        public UserService() : this(new InputValidator(), new ClientRepository(), new UserCreditService(), new UserDataAccessAdapter(), new CreditValidator())
         {
         }
 
@@ -56,12 +57,13 @@ namespace LegacyApp
                 }
             }
 
-            if (user.HasCreditLimit && user.CreditLimit < 500)
+            if (creditValidator.ValidateCreditLimit(user) == false)
             {
                 return false;
             }
 
             userDataAccessAdapter.AddUser(user);
+
             return true;
         }
 
