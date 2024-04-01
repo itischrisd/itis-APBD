@@ -1,6 +1,6 @@
 ﻿using LegacyApp.Interfaces;
 
-namespace LegacyApp.Validators.Users;
+namespace LegacyApp;
 
 public class CreditValidator : ICreditValidator
 {

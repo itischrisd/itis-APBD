@@ -1,7 +1,7 @@
 ﻿using System;
 using LegacyApp.Interfaces;
 
-namespace LegacyApp.Validators.Users;
+namespace LegacyApp;
 
 public class InputValidator : IInputValidator
 {

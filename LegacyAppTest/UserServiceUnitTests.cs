@@ -1,5 +1,4 @@
 using LegacyApp;
-using LegacyApp.Validators.Users;
 using LegacyAppTest.TestDoubles;
 
 namespace LegacyAppTest;
