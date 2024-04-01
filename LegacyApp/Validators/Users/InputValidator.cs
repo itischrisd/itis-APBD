@@ -5,9 +5,9 @@ namespace LegacyApp.Validators.Users;
 
 public class InputValidator : IInputValidator
 {
-    public bool ValidateAge(DateTime dateOfBirth)
+    public bool ValidateName(string firstName, string lastName)
     {
-        return DateTime.Now >= dateOfBirth.AddYears(21);
+        return !(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName));
     }
 
     public bool ValidateEmail(string email)
@@ -15,8 +15,8 @@ public class InputValidator : IInputValidator
         return email.Contains('@') || email.Contains('.');
     }
 
-    public bool ValidateName(string firstName, string lastName)
+    public bool ValidateAge(DateTime dateOfBirth)
     {
-        return !(string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName));
+        return DateTime.Now >= dateOfBirth.AddYears(21);
     }
 }
