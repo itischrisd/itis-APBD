@@ -12,7 +12,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "";
         const string lastName = "Testerski";
@@ -32,7 +32,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "";
@@ -52,7 +52,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
@@ -72,7 +72,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
@@ -92,7 +92,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
@@ -112,7 +112,7 @@ public class UserServiceUnitTests
         var clientRepository = new FakeClientRepository();
         var userCreditService = new FakeUserCreditService();
         var userDataAccessAdapter = new FakeUserDataAccessAdapter();
-        var creditValidator = new CreditValidator();
+        var creditValidator = new StubCreditValidator();
         var userService = new UserService(inputValidator, clientRepository, userCreditService, userDataAccessAdapter, creditValidator);
         const string firstName = "Test";
         const string lastName = "Testerski";
