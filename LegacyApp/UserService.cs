@@ -10,7 +10,7 @@ namespace LegacyApp
         IUserDataAccessAdapter userDataAccessAdapter,
         ICreditValidator creditValidator)
     {
-        [Obsolete("This is legacy constructor for backward compatibility. Use UserService(IInputValidator, IClientRepository, IUserCreditService) instead.")]
+        [Obsolete("This is legacy constructor for backward compatibility. Use canonical constructor instead.")]
         public UserService() : this(new InputValidator(), new ClientRepository(), new UserCreditService(), new UserDataAccessAdapter(), new CreditValidator())
         {
         }
