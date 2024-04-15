@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.DTOs;
 
-public class AnimalDTO
+public class AnimalDto
 {
     public int Id { get; set; }
     public string Name { get; set; }

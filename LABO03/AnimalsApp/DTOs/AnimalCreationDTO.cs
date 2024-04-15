@@ -1,8 +1,11 @@
-﻿namespace WebApplication1.DTOs;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class AnimalCreationDTO
+namespace WebApplication1.DTOs;
+
+public class AnimalCreationDto
 {
-    public string Name { get; set; }
+    [Required] [StringLength(50)]
+    public string Name { get; set; } = null;
     public string Description { get; set; }
     public string Category { get; set; }
     public string Area { get; set; }
