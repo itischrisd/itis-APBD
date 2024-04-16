@@ -49,7 +49,7 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
         connection.Open();
         using var reader = command.ExecuteReader();
 
-        var animal = new Animal();
+        Animal animal = null!;
 
         if (reader.Read())
         {

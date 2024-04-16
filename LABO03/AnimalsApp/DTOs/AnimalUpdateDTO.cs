@@ -4,8 +4,18 @@ namespace WebApplication1.DTOs;
 
 public class AnimalUpdateDto
 {
-    public string Name { get; set; } = null!;
-    public string Description { get; set; } = null!;
-    public string Category { get; set; } = null!;
-    public string Area { get; set; } = null!;
+    [Required]
+    [MaxLength(100)]
+    public string Name { get; init; } = null!;
+
+    [MaxLength(100)]
+    public string Description { get; init; } = null!;
+
+    [Required]
+    [MaxLength(100)]
+    public string Category { get; init; } = null!;
+
+    [Required]
+    [MaxLength(100)]
+    public string Area { get; init; } = null!;
 }
