@@ -19,10 +19,7 @@ public class AnimalsController(IAnimalService animalService) : ControllerBase
     {
         var animal = animalService.GetAnimal(id);
 
-        if (animal == null)
-        {
-            return NotFound("Animal not found");
-        }
+        if (animal == null) return NotFound("Animal not found");
 
         return Ok(animal);
     }
@@ -39,10 +36,7 @@ public class AnimalsController(IAnimalService animalService) : ControllerBase
     {
         var animal = animalService.GetAnimal(id);
 
-        if (animal == null)
-        {
-            return NotFound("Animal not found");
-        }
+        if (animal == null) return NotFound("Animal not found");
 
         _ = animalService.UpdateAnimal(id, animalUpdated);
 
@@ -54,10 +48,7 @@ public class AnimalsController(IAnimalService animalService) : ControllerBase
     {
         var animal = animalService.GetAnimal(id);
 
-        if (animal == null)
-        {
-            return NotFound("Animal not found");
-        }
+        if (animal == null) return NotFound("Animal not found");
 
         _ = animalService.DeleteAnimal(id);
 

@@ -11,14 +11,14 @@ public class WarehouseProcedureController(IWarehouseService warehouseService) : 
     [HttpPost]
     public async Task<IActionResult> AddProduct(ProductWarehouseDto product)
     {
-        // try
-        // {
+        try
+        {
             var idProductWarehouse = await warehouseService.AddProductByProcedure(product);
             return Ok(idProductWarehouse);
-        // }
-        // catch (Exception e)
-        // {
-            // return BadRequest(e.Message);
-        // }
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

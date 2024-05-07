@@ -26,7 +26,6 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
         var animals = new List<Animal>();
 
         while (reader.Read())
-        {
             animals.Add(new Animal
             {
                 Id = (int)reader["Id"],
@@ -35,7 +34,6 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
                 Category = (string)reader["Category"],
                 Area = (string)reader["Area"]
             });
-        }
 
         return animals;
     }
@@ -52,7 +50,6 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
         Animal animal = null!;
 
         if (reader.Read())
-        {
             animal = new Animal
             {
                 Id = (int)reader["Id"],
@@ -61,7 +58,6 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
                 Category = (string)reader["Category"],
                 Area = (string)reader["Area"]
             };
-        }
 
         return animal;
     }
@@ -71,7 +67,8 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
         using var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         using var command = connection.CreateCommand();
 
-        command.CommandText = "INSERT INTO Animals (Name, Description, Category, Area) VALUES (@Name, @Description, @Category, @Area); SELECT SCOPE_IDENTITY()";
+        command.CommandText =
+            "INSERT INTO Animals (Name, Description, Category, Area) VALUES (@Name, @Description, @Category, @Area); SELECT SCOPE_IDENTITY()";
         command.Parameters.AddWithValue("@Name", animal.Name);
         command.Parameters.AddWithValue("@Description", animal.Description);
         command.Parameters.AddWithValue("@Category", animal.Category);
@@ -87,7 +84,8 @@ public class AnimalRepository(IConfiguration configuration) : IAnimalRepository
         using var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"));
         using var command = connection.CreateCommand();
 
-        command.CommandText = "UPDATE Animals SET Name = @Name, Description = @Description, Category = @Category, Area = @Area WHERE Id = @Id";
+        command.CommandText =
+            "UPDATE Animals SET Name = @Name, Description = @Description, Category = @Category, Area = @Area WHERE Id = @Id";
         command.Parameters.AddWithValue("@Id", animal.Id);
         command.Parameters.AddWithValue("@Name", animal.Name);
         command.Parameters.AddWithValue("@Description", animal.Description);

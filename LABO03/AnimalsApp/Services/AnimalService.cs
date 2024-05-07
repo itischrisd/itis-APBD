@@ -22,10 +22,7 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
     {
         var animal = animalRepository.GetAnimal(id);
 
-        if (animal == null)
-        {
-            return null!;
-        }
+        if (animal == null) return null!;
 
         return new AnimalDto
         {
