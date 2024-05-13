@@ -1,34 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Zadanie7.Context;
-using Zadanie7.DTOs;
+using Zadanie7.Models;
 
 namespace Zadanie7.Repositories;
 
 public class TripsRepository(ApbdContext context) : ITripsRepository
 {
-    public async Task<IEnumerable<TripDto>> GetTripsAsync()
+    public async Task<IEnumerable<Trip>> GetTripsAsync()
     {
-        var result = await context
-            .Trips
-            .Select(e =>
-                new TripDto
-                {
-                    Name = e.Name,
-                    Description = e.Description,
-                    DateFrom = DateOnly.FromDateTime(e.DateFrom),
-                    DateTo = DateOnly.FromDateTime(e.DateTo),
-                    MaxPeople = e.MaxPeople,
-                    Countries = e.IdCountries.Select(c => new CountryDto
-                    {
-                        Name = c.Name
-                    }),
-                    Clients = e.ClientTrips.Select(ct => new ClientDto
-                    {
-                        FirstName = ct.IdClientNavigation.FirstName,
-                        LastName = ct.IdClientNavigation.LastName
-                    })
-                }).ToListAsync();
-        if (result.Count == 0) throw new Exception("No trips found");
-        return result;
+        return await context.Trips
+            .Include(trip => trip.IdCountries)
+            .Include(trip => trip.ClientTrips)
+            .ThenInclude(clientTrip => clientTrip.IdClientNavigation)
+            .OrderByDescending(trip => trip.DateFrom)
+            .ToListAsync();
     }
 }

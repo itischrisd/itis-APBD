@@ -23,7 +23,6 @@
     <Folder Include="DTOs\Request\" />
     <Folder Include="DTOs\Response\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
