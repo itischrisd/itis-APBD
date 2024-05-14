@@ -1,8 +1,6 @@
-﻿using Zadanie7.Models;
+﻿namespace Zadanie7.Models.DTOs.Response;
 
-namespace Zadanie7.DTOs;
-
-public partial class ClientDto
+public class ClientDto
 {
     public string FirstName { get; set; } = null!;
 

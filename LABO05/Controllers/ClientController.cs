@@ -1,14 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Zadanie7.Services;
 
 namespace Zadanie7.Controllers;
 
 [Route("api/clients")]
 [ApiController]
-public class ClientController : ControllerBase
+public class ClientController(IClientService clientService) : ControllerBase
 {
-    [HttpGet]
-    public async Task<IActionResult> GetClients()
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteClient(int id)
     {
-        return Ok();
+        try
+        {
+            return Ok("Removed " + await clientService.DeleteClientAsync(id));
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

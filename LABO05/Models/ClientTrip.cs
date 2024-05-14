@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Zadanie7.Models;
 
-namespace Zadanie7.Models;
-
-public partial class ClientTrip
+public class ClientTrip
 {
     public int IdClient { get; set; }
 

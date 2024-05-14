@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Zadanie7.Models;
 
-namespace Zadanie7.Models;
-
-public partial class Country
+public class Country
 {
     public int IdCountry { get; set; }
 

@@ -20,9 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="DTOs\Request\" />
-    <Folder Include="DTOs\Response\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
 
 </Project>

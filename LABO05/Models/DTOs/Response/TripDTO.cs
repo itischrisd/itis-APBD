@@ -1,8 +1,6 @@
-﻿using Zadanie7.Models;
+﻿namespace Zadanie7.Models.DTOs.Response;
 
-namespace Zadanie7.DTOs;
-
-public partial class TripDto
+public class TripDto
 {
     public string Name { get; set; } = null!;
 
