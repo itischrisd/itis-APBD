@@ -131,7 +131,7 @@ public class WarehouseRepository(IConfiguration configuration) : IWarehouseRepos
         }
     }
 
-    public async Task AddProductToWarehouseByProcedure(ProductWarehouseDto productWarehouseDto)
+    public async Task AddProductToWarehouseByProcedure(ProductWarehouseDTO productWarehouseDTO)
     {
         var connectionString = configuration.GetConnectionString("Database");
         await using var connection = new SqlConnection(connectionString);
@@ -145,10 +145,10 @@ public class WarehouseRepository(IConfiguration configuration) : IWarehouseRepos
         try
         {
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdProduct", productWarehouseDto.IdProduct);
-            command.Parameters.AddWithValue("@IdWarehouse", productWarehouseDto.IdWarehouse);
-            command.Parameters.AddWithValue("@Amount", productWarehouseDto.Amount);
-            command.Parameters.AddWithValue("@CreatedAt", productWarehouseDto.CreatedAt);
+            command.Parameters.AddWithValue("@IdProduct", productWarehouseDTO.IdProduct);
+            command.Parameters.AddWithValue("@IdWarehouse", productWarehouseDTO.IdWarehouse);
+            command.Parameters.AddWithValue("@Amount", productWarehouseDTO.Amount);
+            command.Parameters.AddWithValue("@CreatedAt", productWarehouseDTO.CreatedAt);
 
             var rowsInserted = await command.ExecuteNonQueryAsync();
 

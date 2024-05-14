@@ -1,8 +1,3 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-04-05 12:56:53.13
-
--- tables
--- Table: Order
 CREATE TABLE "Order"
 (
     IdOrder     INT      NOT NULL IDENTITY,
@@ -13,7 +8,6 @@ CREATE TABLE "Order"
     CONSTRAINT Order_pk PRIMARY KEY (IdOrder)
 );
 
--- Table: Product
 CREATE TABLE Product
 (
     IdProduct   INT            NOT NULL IDENTITY,
@@ -23,7 +17,6 @@ CREATE TABLE Product
     CONSTRAINT Product_pk PRIMARY KEY (IdProduct)
 );
 
--- Table: Product_Warehouse
 CREATE TABLE Product_Warehouse
 (
     IdProductWarehouse INT            NOT NULL IDENTITY,
@@ -36,7 +29,6 @@ CREATE TABLE Product_Warehouse
     CONSTRAINT Product_Warehouse_pk PRIMARY KEY (IdProductWarehouse)
 );
 
--- Table: Warehouse
 CREATE TABLE Warehouse
 (
     IdWarehouse INT           NOT NULL IDENTITY,
@@ -45,32 +37,25 @@ CREATE TABLE Warehouse
     CONSTRAINT Warehouse_pk PRIMARY KEY (IdWarehouse)
 );
 
--- foreign keys
--- Reference: Product_Warehouse_Order (table: Product_Warehouse)
 ALTER TABLE Product_Warehouse
     ADD CONSTRAINT Product_Warehouse_Order
         FOREIGN KEY (IdOrder)
             REFERENCES "Order" (IdOrder);
 
--- Reference: Receipt_Product (table: Order)
 ALTER TABLE "Order"
     ADD CONSTRAINT Receipt_Product
         FOREIGN KEY (IdProduct)
             REFERENCES Product (IdProduct);
 
--- Reference: _Product (table: Product_Warehouse)
 ALTER TABLE Product_Warehouse
     ADD CONSTRAINT _Product
         FOREIGN KEY (IdProduct)
             REFERENCES Product (IdProduct);
 
--- Reference: _Warehouse (table: Product_Warehouse)
 ALTER TABLE Product_Warehouse
     ADD CONSTRAINT _Warehouse
         FOREIGN KEY (IdWarehouse)
             REFERENCES Warehouse (IdWarehouse);
-
--- End of file.
 
 GO
 

@@ -33,7 +33,7 @@ public class FakeAnimalReposiotry : IAnimalRepository
 
     public int CreateAnimal(Animal animal)
     {
-        _animals = _animals.Append(new Animal()
+        _animals = _animals.Append(new Animal
         {
             Id = _animals.Max(a => a.Id) + 1,
             Name = animal.Name,
@@ -47,10 +47,7 @@ public class FakeAnimalReposiotry : IAnimalRepository
     public int UpdateAnimal(Animal animal)
     {
         var animalToUpdate = _animals.FirstOrDefault(a => a.Id == animal.Id);
-        if (animalToUpdate == null)
-        {
-            return 0;
-        }
+        if (animalToUpdate == null) return 0;
 
         _animals = _animals.Select(a => a.Id == animal.Id ? animal : a);
         return 1;
@@ -59,10 +56,7 @@ public class FakeAnimalReposiotry : IAnimalRepository
     public int DeleteAnimal(int id)
     {
         var animalToDelete = _animals.FirstOrDefault(a => a.Id == id);
-        if (animalToDelete == null)
-        {
-            return 0;
-        }
+        if (animalToDelete == null) return 0;
 
         _animals = _animals.Where(a => a.Id != id);
         return 1;

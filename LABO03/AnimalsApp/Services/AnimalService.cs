@@ -6,25 +6,26 @@ namespace WebApplication1.Services;
 
 public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
 {
-    public IEnumerable<AnimalDto> GetAnimals(string orderBy)
+    public IEnumerable<AnimalDTO> GetAnimals(string orderBy)
     {
-        return animalRepository.GetAnimals(orderBy).Select(a => new AnimalDto
-        {
-            Id = a.Id,
-            Name = a.Name,
-            Description = a.Description,
-            Category = a.Category,
-            Area = a.Area
-        });
+        return animalRepository.GetAnimals(orderBy)
+            .Select(a => new AnimalDTO
+            {
+                Id = a.Id,
+                Name = a.Name,
+                Description = a.Description,
+                Category = a.Category,
+                Area = a.Area
+            });
     }
 
-    public AnimalDto GetAnimal(int id)
+    public AnimalDTO GetAnimal(int id)
     {
         var animal = animalRepository.GetAnimal(id);
 
         if (animal == null) return null!;
 
-        return new AnimalDto
+        return new AnimalDTO
         {
             Id = animal.Id,
             Name = animal.Name,
@@ -34,7 +35,7 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
         };
     }
 
-    public int CreateAnimal(AnimalCreationDto animal)
+    public int CreateAnimal(AnimalCreationDTO animal)
     {
         return animalRepository.CreateAnimal(new Animal
         {
@@ -45,7 +46,7 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
         });
     }
 
-    public int UpdateAnimal(int id, AnimalUpdateDto animal)
+    public int UpdateAnimal(int id, AnimalUpdateDTO animal)
     {
         return animalRepository.UpdateAnimal(new Animal
         {

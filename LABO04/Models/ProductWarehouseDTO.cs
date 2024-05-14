@@ -2,7 +2,7 @@
 
 namespace APBD_Zadanie_6.Models;
 
-public class ProductWarehouseDto
+public class ProductWarehouseDTO
 {
     [Required] public int IdProduct { get; set; }
 

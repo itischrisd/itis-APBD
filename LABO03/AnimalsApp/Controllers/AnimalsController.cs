@@ -25,14 +25,14 @@ public class AnimalsController(IAnimalService animalService) : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateAnimal(AnimalCreationDto animal)
+    public IActionResult CreateAnimal(AnimalCreationDTO animal)
     {
         var id = animalService.CreateAnimal(animal);
         return CreatedAtAction(nameof(CreateAnimal), id);
     }
 
     [HttpPut("{id:int}")]
-    public IActionResult UpdateAnimal(int id, AnimalUpdateDto animalUpdated)
+    public IActionResult UpdateAnimal(int id, AnimalUpdateDTO animalUpdated)
     {
         var animal = animalService.GetAnimal(id);
 

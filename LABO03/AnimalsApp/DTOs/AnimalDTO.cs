@@ -2,7 +2,7 @@
 
 namespace WebApplication1.DTOs;
 
-public class AnimalDto
+public class AnimalDTO
 {
     public int Id { get; init; }
 

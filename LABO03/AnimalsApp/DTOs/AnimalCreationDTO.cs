@@ -2,7 +2,7 @@
 
 namespace WebApplication1.DTOs;
 
-public class AnimalCreationDto
+public class AnimalCreationDTO
 {
     [Required] [MaxLength(100)] public string Name { get; init; } = null!;
 

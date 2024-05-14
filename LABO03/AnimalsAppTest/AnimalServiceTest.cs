@@ -2,16 +2,14 @@
 using AnimalsAppTest.TestDoubles;
 using JetBrains.Annotations;
 using WebApplication1.DTOs;
-using WebApplication1.Repositories;
 using WebApplication1.Services;
 using Xunit;
 
 namespace AnimalsAppTest;
 
 [TestSubject(typeof(AnimalService))]
-public class AnimalServiceTest()
+public class AnimalServiceTest
 {
-
     [Fact]
     public void GetAnimals_Should_Return_Animals_Sorted_By_Name()
     {
@@ -20,10 +18,17 @@ public class AnimalServiceTest()
 
         animalService.GetAnimals("name");
 
-        Assert.Equal("Elephant", animalService.GetAnimals("name").First().Name);
-        Assert.Equal("Lion", animalService.GetAnimals("name").ElementAt(1).Name);
-        Assert.Equal("Penguin", animalService.GetAnimals("name").Last().Name);
-        Assert.Equal(3, animalService.GetAnimals("name").Count());
+        Assert.Equal("Elephant", animalService.GetAnimals("name")
+            .First()
+            .Name);
+        Assert.Equal("Lion", animalService.GetAnimals("name")
+            .ElementAt(1)
+            .Name);
+        Assert.Equal("Penguin", animalService.GetAnimals("name")
+            .Last()
+            .Name);
+        Assert.Equal(3, animalService.GetAnimals("name")
+            .Count());
     }
 
     [Fact]
@@ -34,10 +39,17 @@ public class AnimalServiceTest()
 
         animalService.GetAnimals("id");
 
-        Assert.Equal("Lion", animalService.GetAnimals("id").First().Name);
-        Assert.Equal("Elephant", animalService.GetAnimals("id").ElementAt(1).Name);
-        Assert.Equal("Penguin", animalService.GetAnimals("id").Last().Name);
-        Assert.Equal(3, animalService.GetAnimals("id").Count());
+        Assert.Equal("Lion", animalService.GetAnimals("id")
+            .First()
+            .Name);
+        Assert.Equal("Elephant", animalService.GetAnimals("id")
+            .ElementAt(1)
+            .Name);
+        Assert.Equal("Penguin", animalService.GetAnimals("id")
+            .Last()
+            .Name);
+        Assert.Equal(3, animalService.GetAnimals("id")
+            .Count());
     }
 
     [Fact]
@@ -72,7 +84,7 @@ public class AnimalServiceTest()
         var animalRepository = new FakeAnimalReposiotry();
         var animalService = new AnimalService(animalRepository);
 
-        var id = animalService.CreateAnimal(new AnimalCreationDto
+        var id = animalService.CreateAnimal(new AnimalCreationDTO
         {
             Name = "Tiger",
             Description = "Large cat",
@@ -89,7 +101,7 @@ public class AnimalServiceTest()
         var animalRepository = new FakeAnimalReposiotry();
         var animalService = new AnimalService(animalRepository);
 
-        var result = animalService.UpdateAnimal(2, new AnimalUpdateDto
+        var result = animalService.UpdateAnimal(2, new AnimalUpdateDTO
         {
             Name = "Elephant",
             Description = "Large land animal",
@@ -106,7 +118,7 @@ public class AnimalServiceTest()
         var animalRepository = new FakeAnimalReposiotry();
         var animalService = new AnimalService(animalRepository);
 
-        var result = animalService.UpdateAnimal(4, new AnimalUpdateDto
+        var result = animalService.UpdateAnimal(4, new AnimalUpdateDTO
         {
             Name = "Tiger",
             Description = "Large cat",

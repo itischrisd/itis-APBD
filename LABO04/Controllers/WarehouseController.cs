@@ -9,11 +9,11 @@ namespace APBD_Zadanie_6.Controllers;
 public class WarehouseController(IWarehouseService warehouseService) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> AddProduct(ProductWarehouseDto product)
+    public async Task<IActionResult> AddProduct(ProductWarehouseDTO productWarehouseDTO)
     {
         try
         {
-            var idProductWarehouse = await warehouseService.AddProduct(product);
+            var idProductWarehouse = await warehouseService.AddProduct(productWarehouseDTO);
             return Ok(idProductWarehouse);
         }
         catch (Exception e)

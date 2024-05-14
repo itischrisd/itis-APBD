@@ -8,6 +8,6 @@ public interface IWarehouseRepository
     Task<decimal> GetPriceByProductId(int idProduct);
     Task<bool> CheckIfWarehouseExists(int idWarehouse);
     Task AddProductToWarehouse(ProductWarehouse productWarehouse);
-    Task AddProductToWarehouseByProcedure(ProductWarehouseDto productWarehouseDto);
+    Task AddProductToWarehouseByProcedure(ProductWarehouseDTO productWarehouseDTO);
     Task<int> GetLastCreatedProductWarehouseId();
 }
