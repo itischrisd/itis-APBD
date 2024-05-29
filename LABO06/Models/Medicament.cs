@@ -7,5 +7,6 @@ public class Medicament
     public string Description { get; set; } = null!;
     public string Type { get; set; } = null!;
 
-    public virtual ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; set; } = new List<PrescriptionMedicament>();
+    public virtual ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; set; } =
+        new List<PrescriptionMedicament>();
 }

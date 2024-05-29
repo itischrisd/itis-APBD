@@ -11,9 +11,11 @@ public class PrescriptionConfig : IEntityTypeConfiguration<Prescription>
         builder.HasKey(p => p.IdPrescription)
             .HasName("Prescription_PK");
 
-        builder.Property(p => p.Date).IsRequired();
+        builder.Property(p => p.Date)
+            .IsRequired();
 
-        builder.Property(p => p.DueDate).IsRequired();
+        builder.Property(p => p.DueDate)
+            .IsRequired();
 
         builder.HasOne(p => p.IdPatientNav)
             .WithMany(p => p.Prescriptions)
