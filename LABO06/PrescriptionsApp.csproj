@@ -86,6 +86,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="DTOs\Command\" />
+      <Folder Include="DTOs\Query\" />
+      <Folder Include="Migrations\" />
       <Folder Include="Services\" />
     </ItemGroup>
 
