@@ -14,12 +14,11 @@ public class PrescriptionController(IPrescriptionService prescriptionService) : 
         try
         {
             await prescriptionService.AddPrescriptionAsync(request);
+            return Ok();
         }
         catch (Exception e)
         {
             return BadRequest(e.Message);
         }
-
-        return Ok();
     }
 }

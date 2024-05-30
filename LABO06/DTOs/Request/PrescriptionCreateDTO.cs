@@ -15,4 +15,7 @@ public class PrescriptionCreateDTO
 
     [Required]
     public DateTime DueDate { get; set; }
+
+    [Required]
+    public int IdDoctor { get; set; }
 }

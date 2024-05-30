@@ -5,9 +5,11 @@ namespace PrescriptionsApp.Repositories;
 
 public class PrescriptionRepository(Context context) : IPrescriptionRepository
 {
-    public Task<int> AddPrescriptionAsync(Prescription prescription)
+    public async Task<int> AddPrescriptionAsync(Prescription prescription)
     {
-        return Task.FromResult(1);
+        await context.Prescriptions.AddAsync(prescription);
+        await context.SaveChangesAsync();
+        return prescription.IdPrescription;
     }
 
     public async Task<IEnumerable<Prescription>> GetPrescriptionsByPatientsIdAsync(int patientId)
