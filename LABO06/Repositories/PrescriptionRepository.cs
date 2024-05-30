@@ -13,6 +13,8 @@ public class PrescriptionRepository(Context context) : IPrescriptionRepository
     public async Task<IEnumerable<Prescription>> GetPrescriptionsByPatientsIdAsync(int patientId)
     {
         return await context.Prescriptions.Where(p => p.IdPatient == patientId)
+            .Include(p => p.PrescriptionMedicaments)
+            .ThenInclude(pm => pm.IdMedicamentNav)
             .ToListAsync();
     }
 }

@@ -4,7 +4,9 @@ using PrescriptionsApp.Repositories;
 namespace PrescriptionsApp.Services;
 
 public class PatientService(
-    IPatientRepository patientRepository) : IPatientService
+    IPatientRepository patientRepository,
+    IPrescriptionRepository prescriptionRepository,
+    IDoctorRepository doctorRepository) : IPatientService
 {
     public async Task<PatientQueryDTO> GetPatientAsync(int id)
     {
@@ -17,30 +19,39 @@ public class PatientService(
             IdPatient = patient.IdPatient,
             FirstName = patient.FirstName,
             LastName = patient.LastName,
-            BirthDate = patient.BirthDate,
-            Prescriptions = patient.Prescriptions.OrderBy(p => p.DueDate)
-                .Select(prescription => new PrescriptionQueryDTO
-                {
-                    IdPrescription = prescription.IdPrescription,
-                    Date = prescription.Date,
-                    DueDate = prescription.DueDate,
-                    Medicaments = prescription.PrescriptionMedicaments.Select(prescriptionMedicament =>
-                            new MedicamentQueryDTO
-                            {
-                                IdMedicament = prescriptionMedicament.IdMedicamentNav.IdMedicament,
-                                Name = prescriptionMedicament.IdMedicamentNav.Name,
-                                Dose = prescriptionMedicament.Dose,
-                                Description = prescriptionMedicament.IdMedicamentNav.Description
-                            })
-                        .ToList(),
-                    Doctor = new DoctorQueryDTO
-                    {
-                        IdDoctor = prescription.IdDoctorNav.IdDoctor,
-                        FirstName = prescription.IdDoctorNav.FirstName
-                    }
-                })
-                .ToList()
+            BirthDate = patient.BirthDate
         };
+
+        var prescriptions = await prescriptionRepository.GetPrescriptionsByPatientsIdAsync(id);
+        prescriptions = prescriptions.OrderBy(p => p.DueDate);
+
+        var prescriptionQueryDTOs = prescriptions.Select(p => new PrescriptionQueryDTO
+            {
+                IdPrescription = p.IdPrescription,
+                Date = p.Date,
+                DueDate = p.DueDate,
+                Medicaments = p.PrescriptionMedicaments.Select(pm => new MedicamentQueryDTO
+                    {
+                        IdMedicament = pm.IdMedicamentNav.IdMedicament,
+                        Name = pm.IdMedicamentNav.Name,
+                        Dose = pm.Dose,
+                        Description = pm.IdMedicamentNav.Description
+                    })
+                    .ToList()
+            })
+            .ToList();
+
+        foreach (var prescription in prescriptionQueryDTOs)
+        {
+            var doctor = await doctorRepository.GetDoctorAsync(prescription.IdPrescription);
+            prescription.Doctor = new DoctorQueryDTO
+            {
+                IdDoctor = doctor.IdDoctor,
+                FirstName = doctor.FirstName
+            };
+        }
+
+        patientQueryDTO.Prescriptions = prescriptionQueryDTOs;
 
         return patientQueryDTO;
     }

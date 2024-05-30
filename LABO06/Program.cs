@@ -13,6 +13,9 @@ builder.Services.AddDbContext<Context>(options =>
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
+builder.Services.AddScoped<IMedicamentRepository, MedicamentRepository>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
