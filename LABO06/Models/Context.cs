@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Configurations;
+using PrescriptionsApp.Configurations;
 
-namespace WebApplication1.Models;
+namespace PrescriptionsApp.Models;
 
 public class Context : DbContext
 {

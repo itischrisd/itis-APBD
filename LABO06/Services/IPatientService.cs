@@ -1,6 +1,6 @@
-﻿using WebApplication1.DTOs.Query;
+﻿using PrescriptionsApp.DTOs.Response;
 
-namespace WebApplication1.Services;
+namespace PrescriptionsApp.Services;
 
 public interface IPatientService
 {

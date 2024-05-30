@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.DTOs.Command;
+namespace PrescriptionsApp.DTOs.Request;
 
 public class PrescriptionCreateDTO
 {

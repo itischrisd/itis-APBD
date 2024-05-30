@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.DTOs.Response;
+﻿namespace PrescriptionsApp.DTOs.Response;
 
 public class DoctorQueryDTO
 {

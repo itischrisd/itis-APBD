@@ -1,6 +1,4 @@
-﻿using WebApplication1.DTOs.Response;
-
-namespace WebApplication1.DTOs.Query;
+﻿namespace PrescriptionsApp.DTOs.Response;
 
 public class PrescriptionQueryDTO
 {

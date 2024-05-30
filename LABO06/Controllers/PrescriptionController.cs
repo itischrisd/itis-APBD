@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.DTOs.Command;
-using WebApplication1.Services;
+using PrescriptionsApp.DTOs.Request;
+using PrescriptionsApp.Services;
 
-namespace WebApplication1.Controllers;
+namespace PrescriptionsApp.Controllers;
 
 [ApiController]
 [Route("[controller]")]
 public class PrescriptionController(IPrescriptionService prescriptionService) : Controller
 {
     [HttpPost]
-    public async Task<IActionResult> AddPrescription([FromBody] PrescriptionMedicationCreateDTO request)
+    public async Task<IActionResult> AddPrescription([FromBody] PrescriptionCreateDTO request)
     {
         try
         {

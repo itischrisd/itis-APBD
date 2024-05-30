@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.DTOs.Query;
+﻿namespace PrescriptionsApp.DTOs.Response;
 
 public class PatientQueryDTO
 {
@@ -6,5 +6,5 @@ public class PatientQueryDTO
     public string FirstName { get; set; } = null!;
     public string LastName { get; set; } = null!;
     public DateTime BirthDate { get; set; }
-    public IEquatable<PrescriptionQueryDTO> Prescriptions { get; set; } = null!;
+    public IEnumerable<PrescriptionQueryDTO> Prescriptions { get; set; } = null!;
 }

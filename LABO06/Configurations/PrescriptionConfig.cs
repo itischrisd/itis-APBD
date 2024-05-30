@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebApplication1.Models;
+using PrescriptionsApp.Models;
 
-namespace WebApplication1.Configurations;
+namespace PrescriptionsApp.Configurations;
 
 public class PrescriptionConfig : IEntityTypeConfiguration<Prescription>
 {

@@ -1,8 +1,8 @@
-﻿using WebApplication1.DTOs.Command;
+﻿using PrescriptionsApp.DTOs.Request;
 
-namespace WebApplication1.Services;
+namespace PrescriptionsApp.Services;
 
 public interface IPrescriptionService
 {
-    public Task<int> AddPrescriptionAsync(PrescriptionMedicationCreateDTO request);
+    public Task<int> AddPrescriptionAsync(PrescriptionCreateDTO request);
 }

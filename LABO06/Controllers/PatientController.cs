@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Services;
+using PrescriptionsApp.Services;
 
-namespace WebApplication1.Controllers;
+namespace PrescriptionsApp.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -10,7 +10,14 @@ public class PatientController(IPatientService patientService) : Controller
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetPatient(int id)
     {
-        var patient = await patientService.GetPatientAsync(id);
-        return Ok(patient);
+        try
+        {
+            var patient = await patientService.GetPatientAsync(id);
+            return Ok(patient);
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
     }
 }

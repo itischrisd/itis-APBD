@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models;
+﻿namespace PrescriptionsApp.Models;
 
 public class PrescriptionMedicament
 {

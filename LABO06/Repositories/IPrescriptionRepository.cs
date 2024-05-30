@@ -1,8 +1,9 @@
-﻿using WebApplication1.Models;
+﻿using PrescriptionsApp.Models;
 
-namespace WebApplication1.Repositories;
+namespace PrescriptionsApp.Repositories;
 
 public interface IPrescriptionRepository
 {
     public Task<int> AddPrescriptionAsync(Prescription prescription);
+    public Task<IEnumerable<Prescription>> GetPrescriptionsByPatientsIdAsync(int patientId);
 }
