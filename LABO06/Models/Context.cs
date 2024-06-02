@@ -21,10 +21,6 @@ public class Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new DoctorConfig());
-        modelBuilder.ApplyConfiguration(new MedicamentConfig());
-        modelBuilder.ApplyConfiguration(new PatientConfig());
-        modelBuilder.ApplyConfiguration(new PrescriptionConfig());
-        modelBuilder.ApplyConfiguration(new PrescriptionMedicamentConfig());
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);
     }
 }

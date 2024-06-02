@@ -5,7 +5,7 @@ namespace PrescriptionsApp.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PatientController(IPatientService patientService) : Controller
+public class PatientController(IPatientService patientService) : ControllerBase
 {
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetPatient(int id)

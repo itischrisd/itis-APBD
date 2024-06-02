@@ -6,7 +6,7 @@ namespace PrescriptionsApp.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PrescriptionController(IPrescriptionService prescriptionService) : Controller
+public class PrescriptionController(IPrescriptionService prescriptionService) : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> AddPrescription([FromBody] PrescriptionCreateDTO request)
