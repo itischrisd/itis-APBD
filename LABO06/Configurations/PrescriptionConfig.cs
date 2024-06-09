@@ -11,6 +11,9 @@ public class PrescriptionConfig : IEntityTypeConfiguration<Prescription>
         builder.HasKey(p => p.IdPrescription)
             .HasName("Prescription_PK");
 
+        builder.Property(p => p.IdPrescription)
+            .UseIdentityColumn();
+
         builder.Property(p => p.Date)
             .IsRequired();
 
