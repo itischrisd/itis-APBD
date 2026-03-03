@@ -13,7 +13,7 @@ The following code is distributed under the [GPLv3](./LICENSE).
 ---
 
 Final project assignment was part of the course and can be found as a separate
-repository [here](https://github.com/itisarchive/IncomeApp).
+repository [here](https://github.com/itisarchive/itis-APBD-IncomeApp).
 
 ---
 
